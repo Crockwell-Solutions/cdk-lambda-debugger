@@ -21,32 +21,23 @@
         }
       },
       "sam": {
-        "localArguments": ["--container-env-vars", "${workspaceFolder}/local.env.json"]
+        "localArguments": [
+          "--container-env-vars",
+          "${workspaceFolder}/local.env.json"
+        ]
       }
     },
     {
-      "type": "aws-sam",
-      "request": "direct-invoke",
-      "name": "Lambda Debugger - Direct Invoke 2",
-      "preLaunchTask": "Build",
-      "invokeTarget": {
-        "target": "code",
-        "architecture": "arm64",
-        "projectRoot": "dist/nested",
-        "lambdaHandler": "lambda-debugging-function-2.handler"
-      },
-      "aws": {
-        "region": "eu-west-1"
-      },
-      "lambda": {
-        "runtime": "nodejs20.x",
-        "payload": {
-          "path": "${workspaceFolder}/test/test-payload.json"
-        }
-      },
-      "sam": {
-        "localArguments": ["--container-env-vars", "${workspaceFolder}/local.env.json"]
-      }
+      "name": "Lambda Live Debugger",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/lld",
+      "runtimeArgs": [],
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "env": {}
     }
   ]
 }

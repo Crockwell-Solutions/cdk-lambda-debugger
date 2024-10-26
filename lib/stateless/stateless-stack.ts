@@ -15,6 +15,9 @@ export class StatelessStack extends Stack {
     // Create a Lambda function that will send messages to the queue and demonstrate debugging
     const debuggingFunction = new CustomLambda(this, 'LambdaDebuggingFunction', {
       path: 'src/lambda-debugging-function.ts',
+      environmentVariables: {
+        SQS_QUEUE_URL: debuggingQueue.queueUrl,
+      },
     }).lambda;
 
     // Grant the Lambda function permissions to send messages to the queue

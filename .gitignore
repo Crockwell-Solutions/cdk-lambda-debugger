@@ -12,3 +12,5 @@ local.env.json
 
 # The ESBuild output directory
 dist
+
+.lldebugger

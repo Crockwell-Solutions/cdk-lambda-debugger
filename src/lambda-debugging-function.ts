@@ -28,7 +28,7 @@ const sqsClient = new SQSClient({ region: 'eu-west-1' });
  * @param {object} context - The context object provided by the AWS Lambda runtime.
  */
 export async function handler(event: any) {
-  logger.info('Processing lambda debugger function', { event: event });
+  logger.info('Processing lambda debugger function 2', { event: event });
 
   logger.info('Sending message to SQS queue', { queueUrl: SQS_QUEUE_URL });
 
