@@ -5,21 +5,23 @@
     "lambda-debugger": "bin/lambda-debugger.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build": "esbuild --bundle src/**/*.ts --outbase=src/ --outdir=dist/ --sourcemap=inline --platform=node",
     "test": "jest",
     "cdk": "cdk"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "22.5.4",
+    "aws-cdk": "2.162.1",
+    "esbuild": "^0.24.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "aws-cdk": "2.162.1",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.2"
   },
   "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.9.0",
+    "@aws-sdk/client-sqs": "^3.675.0",
     "aws-cdk-lib": "2.162.1",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.21"
