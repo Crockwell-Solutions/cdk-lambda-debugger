@@ -59,6 +59,13 @@ There are two ways to use the Debugger.
 
     This has the additional benefit of testing the permissions you have configured in CDK. This uses the [Lambda Live Debugger](https://www.lldebugger.com) project led by the industry hero Marko at [Serverless Life](https://www.serverlesslife.com).
 
+    Deploy the Lambda Live Debugger Resources to your connected account. If you need to configure the options for the debugger
+    edit the config file `lldebugger.config.ts`
+
+    ```
+    npx lld
+    ```
+
     To run using Lambda Live Debugger, you initiate the debugging environment, Select `Lambda Function - Lambda Live Debugger` from the Run and Debug menu in VSCode and hit F5. Lambda Live Debugger will work its magic and deploy out the required resources to your account. Now, to initiate the debug environment, you need to invoke the remote Lambda function. For example, you can add your breakpoint to your local code in `src/lambda-debugging-function.ts` and then invoke the Lambda function through the API with a call such as: 
     
     ```
