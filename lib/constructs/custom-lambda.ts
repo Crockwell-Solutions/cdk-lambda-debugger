@@ -7,10 +7,10 @@ import { Runtime, Tracing, Architecture } from 'aws-cdk-lib/aws-lambda';
 
 const lambdaPowerToolsConfig = {
   POWERTOOLS_LOGGER_LOG_EVENT: 'true',
-  POWERTOOLS_LOGGER_SAMPLE_RATE: '0.05',
+  POWERTOOLS_LOGGER_SAMPLE_RATE: '1',
   POWERTOOLS_TRACE_ENABLED: 'enabled',
-  POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS: 'captureHTTPsRequests',
-  POWERTOOLS_TRACER_CAPTURE_RESPONSE: 'captureResult',
+  POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS: 'true',
+  POWERTOOLS_TRACER_CAPTURE_RESPONSE: 'true',
   POWERTOOLS_METRICS_NAMESPACE: 'LambdaDebugger',
 };
 

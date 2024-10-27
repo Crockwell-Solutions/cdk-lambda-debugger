@@ -2,6 +2,7 @@ import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CustomLambda } from '../constructs/custom-lambda';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
+import { RestApi, MethodLoggingLevel, LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
 
 export class StatelessStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -22,5 +23,22 @@ export class StatelessStack extends Stack {
 
     // Grant the Lambda function permissions to send messages to the queue
     debuggingQueue.grantSendMessages(debuggingFunction);
+
+    // Create an API Gateway to trigger the Lambda function
+    const api = new RestApi(this, 'Api', {
+      description: 'Lambda Debugger Trigger API',
+      restApiName: 'lambda-debugger-trigger-api',
+      deploy: true,
+      deployOptions: {
+        stageName: 'api',
+        loggingLevel: MethodLoggingLevel.INFO,
+      },
+    });
+
+    // Add a data resource to the API
+    const data = api.root.addResource('data');
+
+    // Add a POST method to the data resource
+    data.addMethod('POST', new LambdaIntegration(debuggingFunction, { proxy: true }));
   }
 }
