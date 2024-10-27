@@ -5,7 +5,7 @@
     "lambda-debugger": "bin/lambda-debugger.js"
   },
   "scripts": {
-    "build": "esbuild --bundle src/**/*.ts --outbase=src/ --outdir=dist/ --sourcemap=inline --platform=node",
+    "build": "node_modules/.bin/esbuild --bundle src/**/*.ts --outbase=src/ --outdir=dist/ --sourcemap=inline --platform=node",
     "test": "jest",
     "cdk": "cdk"
   },
