@@ -3,7 +3,7 @@
     {
       "type": "aws-sam",
       "request": "direct-invoke",
-      "name": "Lambda Debugger - Direct Invoke",
+      "name": "Lambda Function - SAM Debugger",
       "preLaunchTask": "Build",
       "invokeTarget": {
         "target": "code",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "name": "Lambda Live Debugger",
+      "name": "Lambda Function - Lambda Live Debugger",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/lld",
