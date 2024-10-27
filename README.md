@@ -10,7 +10,7 @@ This is a sample repo to setup a CDK project, configured with some example resou
 
 ## Features
 
-- Allows debugging of the `NodejsFunction` type Lambda functions with automatic transpile
+- Allows debugging of the `NodejsFunction` type Lambda functions with automatic bundling
 - Rapid debugging and update cycle
 - Local debugging using AWS SAM
 - No need to configure a sam template.yaml, just for debugging purposes
@@ -51,7 +51,7 @@ There are two ways to use the Debugger.
 
     This uses AWS SAM to invoke the Lambda function locally. Select `Lambda Function - SAM Debugger` from the Run and Debug menu in VSCode and hit F5. You should see the logging output. 
 
-    This works by the launch configuration calling the preLaunchTask to build the project. The build phase will use ESBuild (akin to the `NodejsFunction` to transpile the source code. Transpiled code is stored and run from the `dist` folder which is only used for local invoke)
+    This works by the launch configuration calling the preLaunchTask to build the project. The build phase will use ESBuild (akin to the `NodejsFunction` to bundle the source code. Bundled code is stored and run from the `dist` folder which is only used for local invoke)
 
     You can add breakpoints to the source code in `src/lambda-debugging-function.ts` and the debugger will adhere to the source maps and link back to the original source code.
 
