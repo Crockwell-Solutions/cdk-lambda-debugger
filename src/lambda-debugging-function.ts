@@ -30,7 +30,7 @@ const sqsClient = new SQSClient({ region: 'eu-west-1' });
 export async function handler(event: any) {
   logger.info('Processing lambda debugger function', { event: event });
 
-  logger.info('Sending message to SQS queue 2', { queueUrl: SQS_QUEUE_URL });
+  logger.info('Sending message to SQS queue', { queueUrl: SQS_QUEUE_URL });
 
   const params = new SendMessageCommand({
     QueueUrl: SQS_QUEUE_URL,
