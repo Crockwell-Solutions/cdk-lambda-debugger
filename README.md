@@ -62,7 +62,7 @@ There are two ways to use the Debugger.
     To run using Lambda Live Debugger, you initiate the debugging environment, Select `Lambda Function - Lambda Live Debugger` from the Run and Debug menu in VSCode and hit F5. Lambda Live Debugger will work its magic and deploy out the required resources to your account. Now, to initiate the debug environment, you need to invoke the remote Lambda function. For example, you can add your breakpoint to your local code in `src/lambda-debugging-function.ts` and then invoke the Lambda function through the API with a call such as: 
     
     ```
-    curl --request POST --header "Content-Type: application/json" --data '{"message": "This is a test message"}' https://hervv39j6d.execute-api.eu-west-1.amazonaws.com/api/data
+    curl --request POST --header "Content-Type: application/json" --data '{"message": "This is a test message"}' https://xxxxxxxx.execute-api.eu-west-1.amazonaws.com/api/data
     ```
 
     In case of code changes, Lambda Live Debugger automatically reloads the updated code without the need to redeploy or restart the debugger. Magic!
